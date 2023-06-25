@@ -8,17 +8,6 @@ module "gke_cluster" {
   vpc_name               = google_compute_network.gke_cluster_vpc.name
   subnet_name            = google_compute_subnetwork.gke_cluster_subnet.name
 
-  autoscaling_config = {
-    cpu : {
-      minimum = 1
-      maximum = 10
-    },
-    memory : {
-      minimum = 2
-      maximum = 20
-    }
-  }
-
   node_pool_config = {
     "standard-pool" : {
       min_node_count = 1
