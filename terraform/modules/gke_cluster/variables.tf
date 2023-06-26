@@ -21,6 +21,14 @@ variable "enable_service_account" {
   default     = false
 }
 
+# For node_pool_configurations, it contains a list of pool configurations
+#
+#   - min_node_count - minimum node count to scale to
+#   - max_node_count - maximum node count to scale to
+#   - preemptible    - if the node type is preemptible
+#   - machine_type   - the desired machine type - see here for more: https://cloud.google.com/compute/docs/machine-resource
+#
+# Multiple pools can be configured to achieve bin-packing in different configurations
 variable "node_pool_configurations" {
   description = "(Required) List of node pool configurations"
   nullable    = false
