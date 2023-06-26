@@ -12,12 +12,24 @@ module "gke_cluster" {
       max_node_count = 2
       preemptible    = false
       machine_type   = "e2-standard-2"
+      taint = [
+        {
+          key : "key1"
+          value : "value1"
+          effect : "NO_SCHEDULE"
+        }
+      ]
+      labels = {
+        "label2" : "value2"
+      }
     },
     "preemptible-pool" : {
       min_node_count = 1
       max_node_count = 2
       preemptible    = true
       machine_type   = "e2-standard-4"
+      taint          = []
+      labels         = {}
     }
   }
 }

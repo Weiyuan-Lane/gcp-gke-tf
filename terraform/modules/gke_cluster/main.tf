@@ -37,8 +37,11 @@ resource "google_container_node_pool" "node_pool" {
   node_config {
     preemptible  = each.value.preemptible
     machine_type = each.value.machine_type
+    taint        = each.value.taint
+    labels       = each.value.labels
 
     service_account = var.enable_service_account ? google_service_account.cluster_sa.email : ""
+
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]

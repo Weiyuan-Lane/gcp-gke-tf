@@ -38,5 +38,12 @@ variable "node_pool_configurations" {
     max_node_count = number
     preemptible    = bool
     machine_type   = string
+    labels         = map(string)
+
+    taint = list(object({
+      key    = string
+      value  = string
+      effect = string
+    }))
   }))
 }
