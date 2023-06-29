@@ -7,14 +7,23 @@ resource "google_service_account" "cluster_sa" {
 }
 
 resource "google_container_cluster" "main" {
-  name     = var.id
-  location = var.location
+  name       = var.id
+  location   = var.location
+  network    = var.vpc_name
+  subnetwork = var.subnet_name
 
   # A cluster must always have a node pool. In order to customize our own node
   # pool, we need to add a small instance and immediately remove the default 
   # pool
   remove_default_node_pool = true
   initial_node_count       = 1
+
+  cluster_autoscaling {
+    enabled = true
+    resource_limits {
+      resource_type = "cpu"
+    }
+  }
 }
 
 resource "google_container_node_pool" "node_pool" {

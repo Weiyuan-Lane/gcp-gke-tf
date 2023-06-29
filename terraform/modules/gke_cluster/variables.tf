@@ -15,6 +15,18 @@ variable "location" {
   nullable    = false
 }
 
+variable "vpc_name" {
+  description = "VPC name to be used for Cluster"
+  type        = string
+  default     = null
+}
+
+variable "subnet_name" {
+  description = "VPC subnet name to be used for Cluster"
+  type        = string
+  default     = null
+}
+
 variable "enable_service_account" {
   description = "If set to true, it will create service account for cluster"
   type        = bool
