@@ -33,7 +33,33 @@ variable "enable_service_account" {
   default     = false
 }
 
-# For node_pool_configurations, it contains a list of pool configurations
+variable "autoscaling_config" {
+  description = "(Required) Autoscaling configuration"
+  nullable    = false
+
+  type = object({
+    cpu = object({
+      minimum = number
+      maximum = number
+    }),
+    memory = object({
+      minimum = number
+      maximum = number
+    })
+  })
+
+  validation {
+    condition     = var.autoscaling_config.memory.maximum > var.autoscaling_config.memory.minimum
+    error_message = "Maximum amount should be higher than minimum amount"
+  }
+
+  validation {
+    condition     = var.autoscaling_config.cpu.maximum > var.autoscaling_config.cpu.minimum
+    error_message = "Maximum amount should be higher than minimum amount"
+  }
+}
+
+# For node_pool_config, it contains a list of pool configurations
 #
 #   - min_node_count - minimum node count to scale to
 #   - max_node_count - maximum node count to scale to
@@ -41,7 +67,7 @@ variable "enable_service_account" {
 #   - machine_type   - the desired machine type - see here for more: https://cloud.google.com/compute/docs/machine-resource
 #
 # Multiple pools can be configured to achieve bin-packing in different configurations
-variable "node_pool_configurations" {
+variable "node_pool_config" {
   description = "(Required) List of node pool configurations"
   nullable    = false
 

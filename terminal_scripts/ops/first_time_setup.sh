@@ -10,6 +10,8 @@ promptGCPProjectId
 
 # Enable all GCP APIs required to run Terraform
 echoAndRun "gcloud services enable container.googleapis.com --project $gcpProjectId"
+echoAndRun "gcloud services enable cloudbilling.googleapis.com --project $gcpProjectId"
+echoAndRun "gcloud services enable billingbudgets.googleapis.com --project $gcpProjectId"
 
 # Init terraform for the first time
 echoAndRun "terraform -chdir=$TERRAFORM_DIR init"

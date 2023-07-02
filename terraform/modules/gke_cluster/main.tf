@@ -20,14 +20,22 @@ resource "google_container_cluster" "main" {
 
   cluster_autoscaling {
     enabled = true
+
     resource_limits {
       resource_type = "cpu"
+      minimum       = var.autoscaling_config.cpu.minimum
+      maximum       = var.autoscaling_config.cpu.maximum
+    }
+    resource_limits {
+      resource_type = "memory"
+      minimum       = var.autoscaling_config.memory.minimum
+      maximum       = var.autoscaling_config.memory.maximum
     }
   }
 }
 
 resource "google_container_node_pool" "node_pool" {
-  for_each = var.node_pool_configurations
+  for_each = var.node_pool_config
 
   name     = "${var.id}-pool-${each.key}"
   location = var.location

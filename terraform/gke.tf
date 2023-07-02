@@ -8,19 +8,24 @@ module "gke_cluster" {
   vpc_name               = google_compute_network.gke_cluster_vpc.name
   subnet_name            = google_compute_subnetwork.gke_cluster_subnet.name
 
-  node_pool_configurations = {
+  autoscaling_config = {
+    cpu : {
+      minimum = 1
+      maximum = 10
+    },
+    memory : {
+      minimum = 2
+      maximum = 20
+    }
+  }
+
+  node_pool_config = {
     "standard-pool" : {
       min_node_count = 1
       max_node_count = 2
       preemptible    = false
       machine_type   = "e2-standard-4"
-      taint = [
-        {
-          key : "key1"
-          value : "value1"
-          effect : "NO_SCHEDULE"
-        }
-      ]
+      taint          = []
       labels = {
         "label2" : "value2"
       }
@@ -29,7 +34,7 @@ module "gke_cluster" {
       min_node_count = 0
       max_node_count = 2
       preemptible    = true
-      machine_type   = "e2-standard-8"
+      machine_type   = "e2-standard-4"
       taint          = []
       labels         = {}
     }
