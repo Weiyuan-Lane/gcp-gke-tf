@@ -3,7 +3,7 @@
 # Include all common script dependencies --------------------------------------
 source 'terminal_scripts/utils/load_script_env_vars.sh'
 source 'terminal_scripts/utils/echo_and_run.sh'
-source 'terminal_scripts/utils/prompt_gcp_project_id.sh'
+source 'terminal_scripts/utils/prompt_user_input.sh'
 # ----------------------------------------------------------------- Include End
 
 promptGCPProjectId
