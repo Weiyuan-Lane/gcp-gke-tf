@@ -1,0 +1,17 @@
+**/.terraform/*
+
+*.tfstate
+*.tfstate.*
+
+**/weiyuan.tfvars
+
+crash.log
+
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+.tmp/*
+
+.vscode/*
