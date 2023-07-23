@@ -33,32 +33,6 @@ variable "enable_service_account" {
   default     = false
 }
 
-variable "autoscaling_config" {
-  description = "(Required) Autoscaling configuration"
-  nullable    = false
-
-  type = object({
-    cpu = object({
-      minimum = number
-      maximum = number
-    }),
-    memory = object({
-      minimum = number
-      maximum = number
-    })
-  })
-
-  validation {
-    condition     = var.autoscaling_config.memory.maximum > var.autoscaling_config.memory.minimum
-    error_message = "Maximum amount should be higher than minimum amount"
-  }
-
-  validation {
-    condition     = var.autoscaling_config.cpu.maximum > var.autoscaling_config.cpu.minimum
-    error_message = "Maximum amount should be higher than minimum amount"
-  }
-}
-
 # For node_pool_config, it contains a list of pool configurations
 #
 #   - min_node_count - minimum node count to scale to

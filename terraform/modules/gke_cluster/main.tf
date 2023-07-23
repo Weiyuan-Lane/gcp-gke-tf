@@ -17,21 +17,6 @@ resource "google_container_cluster" "main" {
   # pool
   remove_default_node_pool = true
   initial_node_count       = 1
-
-  cluster_autoscaling {
-    enabled = true
-
-    resource_limits {
-      resource_type = "cpu"
-      minimum       = var.autoscaling_config.cpu.minimum
-      maximum       = var.autoscaling_config.cpu.maximum
-    }
-    resource_limits {
-      resource_type = "memory"
-      minimum       = var.autoscaling_config.memory.minimum
-      maximum       = var.autoscaling_config.memory.maximum
-    }
-  }
 }
 
 resource "google_container_node_pool" "node_pool" {
@@ -60,7 +45,9 @@ resource "google_container_node_pool" "node_pool" {
     service_account = var.enable_service_account ? google_service_account.cluster_sa.email : ""
 
     oauth_scopes = [
-      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform",
+      "https://www.googleapis.com/auth/logging.write",
+      "https://www.googleapis.com/auth/monitoring",
     ]
   }
 }
