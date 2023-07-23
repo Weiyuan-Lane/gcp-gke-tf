@@ -29,3 +29,12 @@ module "gke_cluster" {
     }
   }
 }
+
+# Kubernetes Dashboard to run in the GKE Cluster
+module "kubernetes_dashboard" {
+  source = "./modules/gke_cluster_kubernetes_dashboard"
+
+  cluster_kubeconfig = module.gke_cluster.cluster_kubeconfig
+  cluster_id         = module.gke_cluster.cluster_id
+}
+
