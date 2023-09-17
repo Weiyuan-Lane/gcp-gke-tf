@@ -41,11 +41,17 @@ Feel free to read into these scripts and modify if necessary
 ---
 <br><br><br>
 
-## #1 - Getting Started - [Link](https://medium.com/@weiyuan-liu/figuring-it-out-its-google-s-cool-bernetes-time-1-getting-started-again-c5f150109253)
+## #1 - Getting Started - [Link](https://weiyuan-liu.medium.com/figuring-it-out-its-google-s-cool-bernetes-time-1-getting-started-again-c5f150109253?sk=f3785eddc278546b5df996c37b4facfc)
 
 This first episode in the series covers the basic concepts of Terraform and using it in GKE.
 
 I also covered base design choices and concepts for the "gke_cluster" module, balancing between flexibility and ease of use.
+
+---
+
+## #1.0.1 - Budgeting woes - [Link](https://weiyuan-liu.medium.com/figuring-it-out-its-google-s-cool-bernetes-time-1-0-1-budgeting-woes-7c4e583a929a?sk=8c63499b26ced6e2d5cb5187f0123054)
+
+Extension to the first episode in this series, where I cover more on creating budget alerts, and common mistakes to avoid when setting it up in Terraform!
 
 ---
 
