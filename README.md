@@ -43,21 +43,27 @@ gcloud container clusters get-credentials %CLUSTER_NAME% \
 ### Bringdown instructions
 1. [Added in 1.0.0](https://github.com/Weiyuan-Lane/gcp-gke-tf/releases/tag/1.0.0) | Run `make bringdown-staging` to bringdown the cluster
 
-<br><br>
+<br><br><br><br>
 
 ---
+---
+---
+## Other optional tools
+---
+---
+---
 
-## Tools
+### For managing your GKE cluster
 
 #### Using Kubectl
 See common uses from their [cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
-Learn more on it's comparison from similar tools in [episode 2]() - TO BE ADDED
+Learn more on it's comparison from similar tools in [episode 2](https://weiyuan-liu.medium.com/figuring-it-out-its-google-s-cool-bernetes-time-2-best-ways-to-manage-your-gke-cluster-dfa396c9a14e)
 
 #### Using K9s
 See tutorials [here](https://k9scli.io/topics/video/)
 
-Learn more on it's comparison from similar tools in [episode 2]() - TO BE ADDED
+Learn more on it's comparison from similar tools in [episode 2](https://weiyuan-liu.medium.com/figuring-it-out-its-google-s-cool-bernetes-time-2-best-ways-to-manage-your-gke-cluster-dfa396c9a14e)
 
 #### Using Kubernetes Dashboard
 If you have ran the deployment instructions above, no other setup required here!
@@ -70,7 +76,7 @@ To start using the dashboard:
 gcloud auth print-access-token | pbcopy # pbcopy copies to your clipboard directly
 ```
 
-Learn more on it's comparison from similar tools in [episode 2]() - TO BE ADDED
+Learn more on it's comparison from similar tools in [episode 2](https://weiyuan-liu.medium.com/figuring-it-out-its-google-s-cool-bernetes-time-2-best-ways-to-manage-your-gke-cluster-dfa396c9a14e)
 
 
 
@@ -84,7 +90,7 @@ Learn more on it's comparison from similar tools in [episode 2]() - TO BE ADDED
 ---
 ---
 ---
-<br><br><br>
+<br>
 
 ## #1 - Getting Started - [Link](https://weiyuan-liu.medium.com/figuring-it-out-its-google-s-cool-bernetes-time-1-getting-started-again-c5f150109253?sk=f3785eddc278546b5df996c37b4facfc)
 
@@ -97,5 +103,13 @@ I also covered base design choices and concepts for the "gke_cluster" module, ba
 ## #1.0.1 - Budgeting woes - [Link](https://weiyuan-liu.medium.com/figuring-it-out-its-google-s-cool-bernetes-time-1-0-1-budgeting-woes-7c4e583a929a?sk=8c63499b26ced6e2d5cb5187f0123054)
 
 Extension to the first episode in this series, where I cover more on creating budget alerts, and common mistakes to avoid when setting it up in Terraform!
+
+---
+
+## #2 - Best ways to manage your GKE Cluster! - [Link](https://weiyuan-liu.medium.com/figuring-it-out-its-google-s-cool-bernetes-time-2-best-ways-to-manage-your-gke-cluster-dfa396c9a14e)
+
+Google Cloud Console, Kubectl, Kubernetes Dashboard, and K9s - which is the best for managing your Kubernetes cluster in Google Cloud? We discuss more here!
+
+See the [TL;DR](https://gist.github.com/Weiyuan-Lane/f7d7ffb4330d037b51093481ff02806e#file-gke_comparing_management_tools-md) for this post for a quick overview
 
 ---
