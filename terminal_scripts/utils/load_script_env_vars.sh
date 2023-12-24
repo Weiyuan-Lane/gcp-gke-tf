@@ -5,8 +5,6 @@ mkdir -p $TMP_DIR
 
 GCP_PROJECT_ID_FILE=".gcpprojectid"
 TERRAFORM_DIR=terraform
-STAGING_TFVARS_FILE="env/terraform.stg.tfvars"
-PRODUCTION_TFVARS_FILE="env/terraform.prod.tfvars"
 
 ECHO_YELLOW_COLOR='\033[1;33m'
 ECHO_RED_COLOR='\033[0;31m'
